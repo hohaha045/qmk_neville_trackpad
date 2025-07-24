@@ -15,6 +15,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include QMK_KEYBOARD_H
+#include "pointing_device.h"
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 #    include "timer.h"
@@ -56,6 +57,15 @@ static uint16_t auto_pointer_layer_timer = 0;
 #    define S_D_MOD KC_NO
 #    define SNIPING KC_NO
 #endif // !POINTING_DEVICE_ENABLE
+
+report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
+    if (is_keyboard_master()) {
+        // No scaling; raw values from Cirque
+        mouse_report.x = mouse_report.x;
+        mouse_report.y = mouse_report.y;
+    }
+    return mouse_report;
+}
 
 // clang-format off
 /** \brief QWERTY layout (3 rows, 10 columns). */
