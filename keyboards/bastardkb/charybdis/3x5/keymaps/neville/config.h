@@ -65,3 +65,17 @@
 
 //#define CHARYBDIS_DRAGSCROLL_REVERSE_X
 #define CHARYBDIS_DRAGSCROLL_REVERSE_Y
+
+
+
+// Cirque trackpad diameter in mm (adjust based on your model: 35 or 40)
+#define CIRQUE_PINNACLE_DIAMETER_MM 40
+
+// RP2040 SPI pin configuration for left side
+#define CIRQUE_PINNACLE_SPI_CS_PIN     GP10
+#define CIRQUE_PINNACLE_SPI_MOSI_PIN   GP11
+#define CIRQUE_PINNACLE_SPI_MISO_PIN   GP12
+#define CIRQUE_PINNACLE_SPI_SCK_PIN    GP13
+
+// Optional: Lower update delay for smoother tracking
+#define POINTING_DEVICE_TASK_THROTTLE_MS 1
